@@ -190,3 +190,28 @@ TEST_F(Project_TemplatesRepositoryTest, Templates)
         EXPECT_TRUE(expectedTemplates.contains(templ));
     }
 }
+
+string getChordName(string chordSymbol) {
+    if (chordSymbol == "C") return "Dó Maior";
+    else if (chordSymbol == "Cm") return "Dó Menor"; 
+    else if (chordSymbol == "C#") return "Dó Sustenido Maior";
+    else if (chordSymbol == "C#m") return "Dó Sustenido Menor";
+    else return "Símbolo de acorde inválido";
+}
+
+
+TEST(DoMaior, TestGetChordName) {
+    EXPECT_EQ("Dó Maior", getChordName("C"));
+}
+
+TEST(DoMenor, TestGetChordName) {
+    EXPECT_EQ("Dó Menor", getChordName("Cm"));
+}
+
+TEST(DoSustenidoMaior, TestGetChordName) {
+    EXPECT_EQ("Dó Sustenido Maior", getChordName("C#"));
+}
+
+TEST(DoSustenidoMenor, TestGetChordName) {
+    EXPECT_EQ("Dó Sustenido Menor", getChordName("C#m"));
+}
